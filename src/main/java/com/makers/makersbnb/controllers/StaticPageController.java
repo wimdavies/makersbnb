@@ -14,4 +14,10 @@ public class StaticPageController {
     public String contactUs() {
         return "email@website.com";
     }
+
+    @GetMapping("/termsandconditions")
+    public String termsAndConditions() {
+        return "Coming soon! In the meantime, please behave yourselves.";
+    }
+
 }

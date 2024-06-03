@@ -53,4 +53,11 @@ class LandingPageTest {
         Locator pageBody = page.locator("body");
         assertThat(pageBody).containsText("Toby");
     }
+
+    @Test
+    public void usersCanSeeTsAndCs() {
+        page.navigate("localhost:8080/termsandconditions");
+        Locator pageBody = page.locator("body");
+        assertThat(pageBody).containsText("Coming soon! In the meantime, please behave yourselves.");
+    }
 }
