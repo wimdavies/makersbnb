@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MakersBnB</title>
 </head>
 <body>
     <h1>Welcome to MakersBnB!</h1>
+    <!-- th:text is a Thymeleaf attribute used to generate the actual `h3` text -->
+    <!-- within it, we use nSpaces which was passed in from the controller -->
+    <h3 th:text="${nSpaces} + ' spaces are waiting to be discovered'"></h3>
 </body>
 </html>

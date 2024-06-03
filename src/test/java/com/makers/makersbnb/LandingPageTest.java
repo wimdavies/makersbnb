@@ -36,8 +36,10 @@ class LandingPageTest {
     @Test
     public void usersAreWelcomedToTheApp() {
         page.navigate("localhost:8080");
-        Locator pageBody = page.locator("body");
-        assertThat(pageBody).containsText("Welcome to MakersBnB!");
+        Locator pageH1 = page.locator("H1");
+        assertThat(pageH1).containsText("Welcome to MakersBnB!");
+        Locator pageH3 = page.locator("H3");
+        assertThat(pageH3).containsText("spaces are waiting to be discovered");
     }
 
     @Test
