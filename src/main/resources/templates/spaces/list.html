@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Spaces</title>
+</head>
+<body>
+    <h1>All Spaces</h1>
+    <ul>
+        <li th:each="space : ${spaces}" th:text="${space.name}"></li>
+    </ul>
+</body>
+</html>

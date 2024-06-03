@@ -64,4 +64,13 @@ class LandingPageTest {
         Locator pageBody = page.locator("body");
         assertThat(pageBody).containsText("Coming soon! In the meantime, please behave yourselves.");
     }
+
+    @Test
+    public void usersCanSeeAllSpaces() {
+        page.navigate("localhost:8080/spaces");
+        Locator pageBody = page.locator("body");
+        assertThat(pageBody).containsText("Rustic Treehouse");
+        assertThat(pageBody).containsText("Georgian Townhouse");
+        assertThat(pageBody).containsText("Crusty beach hut");
+    }
 }
