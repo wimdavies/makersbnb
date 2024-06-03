@@ -40,6 +40,8 @@ class LandingPageTest {
         assertThat(pageH1).containsText("Welcome to MakersBnB!");
         Locator pageH3 = page.locator("H3");
         assertThat(pageH3).containsText("spaces are waiting to be discovered");
+        Locator pageH2 = page.locator("H2");
+        assertThat(pageH2).containsText("bookings were made last week");
     }
 
     @Test
