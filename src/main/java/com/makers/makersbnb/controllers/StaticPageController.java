@@ -9,4 +9,9 @@ public class StaticPageController {
     public String landingPage() {
         return "Welcome to MakersBnB!";
     }
+
+    @GetMapping("/contactus")
+    public String contactUs() {
+        return "email@website.com";
+    }
 }
