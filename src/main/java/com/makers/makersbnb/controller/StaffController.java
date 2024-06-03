@@ -1,4 +1,4 @@
-package com.makers.makersbnb.controllers;
+package com.makers.makersbnb.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
