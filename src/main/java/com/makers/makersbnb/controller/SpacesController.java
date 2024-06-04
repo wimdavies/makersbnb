@@ -3,11 +3,15 @@ package com.makers.makersbnb.controller;
 import com.makers.makersbnb.model.Space;
 import com.makers.makersbnb.repository.SpaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.Map;
 
 @RestController
 public class SpacesController {
@@ -15,8 +19,14 @@ public class SpacesController {
     private SpaceRepository spaceRepository;
 
     @GetMapping("/spaces")
-    public ModelAndView allSpaces() {
-        ModelAndView modelAndView = new ModelAndView("/spaces/list");
+    public ModelAndView index(@AuthenticationPrincipal OAuth2User principal) {
+        
+        // getAttributes
+        Map attributes = principal.getAttributes();
+        // they will then be printed when you go to "/spaces"
+        System.out.println(attributes);
+
+        ModelAndView modelAndView = new ModelAndView("/spaces/index");
         Iterable<Space> spaces = spaceRepository.findAll();
         modelAndView.addObject("spaces", spaces);
         return modelAndView;
