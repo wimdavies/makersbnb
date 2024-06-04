@@ -20,7 +20,6 @@ public class SpacesController {
 
     @GetMapping("/spaces")
     public ModelAndView index(@AuthenticationPrincipal OAuth2User principal) {
-        
         // getAttributes
         Map attributes = principal.getAttributes();
         // they will then be printed when you go to "/spaces"
