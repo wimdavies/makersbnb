@@ -18,15 +18,11 @@ public class Space {
     // the value of id is generated automatically
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // a field that holds the name of each space
+    // other fields
     private String name;
-
-    // a field that holds the description of each space
     private String description;
-
-    // a field that holds the price of each space
     private int price;
+    private String rules;
 
     // the full-argument constructor
     public Space(String name, String description, int price) {
