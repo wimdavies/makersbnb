@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MakersBnB | [[${space.name}]]</title>
+</head>
+<body>
+    <h1 th:text="${space.name}"></h1>
+    <dl>
+        <dt>Description</dt>
+        <dd>[[${space.description}]]</dd>
+        <dt>Rules</dt>
+        <dd>[[${space.rules}]]</dd>
+        <dt>Price</dt>
+        <dd>[[${space.price}]]</dd>
+        <dt>Owned by</dt>
+        <dd>[[${space.user.name}]]</dd>
+    </dl>
+</body>
+</html>
