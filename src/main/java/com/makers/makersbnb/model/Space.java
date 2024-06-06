@@ -13,21 +13,23 @@ import lombok.Setter;
 @Table(name = "SPACES")
 public class Space {
 
-    // the following field (id) is the primary key for this Entity
     @Id
-    // the value of id is generated automatically
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // other fields
     private String name;
     private String description;
     private int price;
     private String rules;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     // the full-argument constructor
-    public Space(String name, String description, int price) {
+    public Space(String name, String description, int price, String rules, User user) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.rules = rules;
+        this.user = user;
     }
 }
