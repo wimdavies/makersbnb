@@ -55,12 +55,14 @@ public class SpacesController {
     }
 
     @PostMapping("/spaces")
-    // Spring Boot uses the form data to createSpace an instance of space
-    // which is then passed in as an arg here
-    public RedirectView createSpace(Space space) {
+    public ModelAndView createSpace(Space space) {
         spaceRepository.save(space);
-        // assumes you already created a method to handle `GET "/spaces"`
-        return new RedirectView("/spaces");
+        return new ModelAndView("redirect:/spaces/");
+        // once you're saving the user_id from the user matching the principal in /new,
+        // you can change the successful redirect to this:
+        // return new ModelAndView("redirect:/spaces/" + space.getId());
+
+        // TODO: add conditional to handle unsuccessful save (redirect back to new)
     }
 
 }
