@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>MakersBnB</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li th:if="${username == null}"><a href="/login">Login</a></li>
-            <li th:unless="${username == null}"><a href="/logout">Logout</a></li>
-        </ul>
-    </nav>
-    <h1 th:if="${username == null}">Welcome to MakersBnB!</h1>
-    <h1 th:unless="${username == null}">Welcome to MakersBnB, [[${username}]]!</h1>
-    <h2 th:text="${nBookings} + ' bookings were made last week'"></h2>
-    <h3 th:text="${nSpaces} + ' spaces are waiting to be discovered'"></h3>
-    <h4>Recent reviews</h4>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}"
+>
+<div layout:fragment="content">
+    <h2 th:if="${username == null}">Welcome to MakersBnB!</h2>
+    <h2 th:unless="${username == null}">Welcome to MakersBnB, [[${username}]]!</h2>
+    <h3 th:text="${nBookings} + ' bookings were made last week'"></h3>
+    <h4 th:text="${nSpaces} + ' spaces are waiting to be discovered'"></h4>
+    <h5>Recent reviews</h5>
     <ul>
         <!-- using th:each we tell Thymeleaf to render a `li` for each review -->
         <li th:each="review : ${reviews}" th:text="${review}"></li>
     </ul>
-</body>
+</div>
 </html>

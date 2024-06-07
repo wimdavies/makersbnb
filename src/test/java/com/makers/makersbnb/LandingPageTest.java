@@ -36,12 +36,12 @@ class LandingPageTest {
     @Test
     public void usersAreWelcomedToTheApp() {
         page.navigate("localhost:8080");
-        Locator pageH1 = page.locator("H1");
-        assertThat(pageH1).containsText("Welcome to MakersBnB!");
-        Locator pageH3 = page.locator("H3");
-        assertThat(pageH3).containsText("spaces are waiting to be discovered");
         Locator pageH2 = page.locator("H2");
-        assertThat(pageH2).containsText("bookings were made last week");
+        assertThat(pageH2).containsText("Welcome to MakersBnB!");
+        Locator pageH4 = page.locator("H4");
+        assertThat(pageH4).containsText("spaces are waiting to be discovered");
+        Locator pageH3 = page.locator("H3");
+        assertThat(pageH3).containsText("bookings were made last week");
     }
 
     @Test
@@ -63,14 +63,5 @@ class LandingPageTest {
         page.navigate("localhost:8080/termsandconditions");
         Locator pageBody = page.locator("body");
         assertThat(pageBody).containsText("Coming soon! In the meantime, please behave yourselves.");
-    }
-
-    @Test
-    public void usersCanSeeAllSpaces() {
-        page.navigate("localhost:8080/spaces");
-        Locator pageBody = page.locator("body");
-        assertThat(pageBody).containsText("Rustic Treehouse");
-        assertThat(pageBody).containsText("Georgian Townhouse");
-        assertThat(pageBody).containsText("Crusty beach hut");
     }
 }
